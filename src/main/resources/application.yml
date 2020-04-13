@@ -1,0 +1,12 @@
+info:
+  app:
+    name: ${spring.application.name}
+    version: 0.0.1
+    description: Proxy Test Service.
+
+eureka:
+  client:
+    enabled: false
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
