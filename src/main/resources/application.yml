@@ -7,6 +7,16 @@ info:
 eureka:
   client:
     enabled: false
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-headers: "*"
+        allowed-methods: "*"
+        allowed-origins: "*"
+
+server:
+  port: ${SERVER_PORT:8090}

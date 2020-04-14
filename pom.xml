@@ -22,22 +22,70 @@
 		<start-class>org.bremersee.pts.Application</start-class>
 	</properties>
 
+	<scm>
+		<connection>scm:git:ssh://git@github.com:bremersee/pts.git</connection>
+		<developerConnection>
+			scm:git:ssh://git@github.com:bremersee/pts.git
+		</developerConnection>
+		<url>https://github.com/bremersee/pts</url>
+	</scm>
+
+	<issueManagement>
+		<url>https://github.com/bremersee/pts/issues</url>
+		<system>GitHub Issues</system>
+	</issueManagement>
+
+	<distributionManagement>
+		<repository>
+			<id>bremersee-releases</id>
+			<url>https://nexus.bremersee.org/repository/maven-releases</url>
+		</repository>
+		<snapshotRepository>
+			<id>bremersee-snapshots</id>
+			<url>https://nexus.bremersee.org/repository/maven-snapshots</url>
+		</snapshotRepository>
+		<site>
+			<id>bremersee-sites</id>
+			<url>
+				dav:https://nexus.bremersee.org/repository/maven-sites/pts/${project.version}
+			</url>
+		</site>
+	</distributionManagement>
+
 	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<!-- Actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
+			<groupId>io.micrometer</groupId>
+			<artifactId>micrometer-registry-prometheus</artifactId>
 		</dependency>
+
+		<!-- Eureka client -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+		</dependency>
+
+		<!-- Config client -->
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-config</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.retry</groupId>
+			<artifactId>spring-retry</artifactId>
 		</dependency>
 
 		<dependency>
@@ -56,6 +104,7 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
