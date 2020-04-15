@@ -1,8 +1,6 @@
 info:
-  app:
-    name: ${spring.application.name}
-    version: 0.0.1
-    description: Proxy Test Service.
+  tags:
+    environment: test
 
 eureka:
   client:
@@ -17,6 +15,13 @@ management:
         allowed-headers: "*"
         allowed-methods: "*"
         allowed-origins: "*"
+  endpoint:
+    health:
+      show-details: always
 
 server:
   port: ${SERVER_PORT:8090}
+
+spring:
+  jmx:
+    enabled: true
